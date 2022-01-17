@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Home</title>
+    <link rel="stylesheet" href="./styles/main.css" />
+    <script
+      src="https://kit.fontawesome.com/21bc9a918c.js"
+      crossorigin="anonymous"
+    ></script>
+  </head>
+
+  <body>
+    <div id="container">
+      <div id="sidebar">
+        <!--DO NOT CHANGE THIS ID's-->
+      </div>
+      <div id="main">
+        <!--DO NOT CHANGE THIS ID's-->
+      </div>
+    </div>
+  </body>
+  <script type="module">
+    import sidebar from "./components/sidebar.js";
+    import { apiCall, appendArticles } from "./scripts/main.js";
+    let main = document.querySelector("#main");
+    let sidBox = document.querySelector("#sidebar");
+    sidBox.innerHTML = sidebar();
+    var data;
+    let url =
+      "https://gnews.io/api/v4/top-headlines?lang=en&country=in&token=e5d6f1461b651ae03bcc71249b666daf";
+    async function divShow() {
+      try {
+        let data = await apiCall(url);
+        let { articles } = data;
+        appendArticles(articles, main);
+      } catch (error) {
+        console.log(error);
+      }
+    }
+    divShow();
+    document.querySelector("#serachB").addEventListener("click", search);
+    function search() {
+      let serText = document.querySelector("#searchBar");
+      localStorage.setItem("search", JSON.stringify(serText.value));
+      window.open("search.html", "_self");
+    }
+  </script>
+</html>

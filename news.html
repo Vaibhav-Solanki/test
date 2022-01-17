@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="./styles/main.css" />
+    <script
+      src="https://kit.fontawesome.com/21bc9a918c.js"
+      crossorigin="anonymous"
+    ></script>
+  </head>
+
+  <body>
+    <!--DO NOT CHANGE THIS ID's-->
+
+    <div id="container">
+      <div id="sidebar">
+        <!--add your sidebar component here-->
+      </div>
+
+      <div id="main" style="display: block">
+        <div id="headline">
+          <!--add headline here-->
+        </div>
+        <img id="img" src="" alt="" />
+        <!--show news image here-->
+
+        <div id="content">
+          <!--add news content here-->
+        </div>
+      </div>
+    </div>
+  </body>
+  <script type="module">
+    import sidebar from "./components/sidebar.js";
+    let sidBox = document.querySelector("#sidebar");
+    sidBox.innerHTML = sidebar();
+    let data = JSON.parse(localStorage.getItem("news"));
+    let { content, image, title } = data;
+    document.querySelector("#headline").innerHTML = title;
+    document.querySelector("#img").src = image;
+    document.querySelector("#content").innerHTML = content;
+  </script>
+</html>

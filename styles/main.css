@@ -1,0 +1,71 @@
+.card {
+  width: 100%;
+  box-shadow: rgb(0 0 0 / 40%) 0px 2px 4px, rgb(0 0 0 / 30%) 0px 7px 13px -3px,
+    rgb(0 0 0 / 20%) 0px -3px 0px inset;
+  border-radius: 11px;
+  overflow: hidden;
+  background-color: white;
+}
+input {
+  border: none;
+  height: 20px;
+  font-weight: 600;
+  font-size: 16px;
+  padding-left: 8px;
+}
+* {
+  font-family: system-ui;
+}
+.card > img {
+  width: 100%;
+  border-radius: 10px;
+}
+.card > div > h2 {
+  margin: 5px 5px 5px 5px;
+  font-size: 15px;
+}
+.card > div > p {
+  margin: 0px 0px 0px 5px;
+}
+#sidebar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+#sidebar > * {
+  margin-left: 15px;
+}
+#main {
+  margin: auto;
+  width: 80%;
+  margin-top: 30px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-column-gap: 10px;
+  grid-row-gap: 10px;
+}
+#headline {
+  font-size: 29px;
+  text-align: center;
+}
+#img {
+  width: 100%;
+}
+#sidebar {
+  box-shadow: rgb(0 0 0 / 40%) 0px 2px 4px, rgb(0 0 0 / 30%) 0px 7px 13px -3px,
+    rgb(0 0 0 / 20%) 0px -3px 0px inset;
+  margin: auto;
+  padding: 10px;
+  width: 80%;
+}
+button {
+  width: 45px;
+  height: 25px;
+  margin-left: 0px;
+  border: none;
+  border-left: solid 1px #697be3;
+}
+.inS {
+  border-radius: 5px;
+  border: solid 1px #697be3;
+}

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="./styles/main.css" />
+    <script
+      src="https://kit.fontawesome.com/21bc9a918c.js"
+      crossorigin="anonymous"
+    ></script>
+  </head>
+
+  <body>
+    <div id="main">
+      <!--No need to add sidebar here, directly display search results-->
+
+      <!-- show headline, description and image -->
+    </div>
+  </body>
+  <script type="module">
+    import sidebar from "./components/sidebar.js";
+    import { apiCall, appendArticles } from "./scripts/main.js";
+    let main = document.querySelector("#main");
+    let sidBox = document.querySelector("#sidebar");
+    // sidBox.innerHTML = sidebar();
+    var data;
+    let searchCon = JSON.parse(localStorage.getItem("search"));
+    let url = `https://gnews.io/api/v4/search?q=${searchCon}&lang=en&country=in&token=e5d6f1461b651ae03bcc71249b666daf`;
+    async function divShow() {
+      try {
+        let data = await apiCall(url);
+        let { articles } = data;
+        // console.log(articles);
+        appendArticles(articles, main);
+      } catch (error) {
+        console.log(error);
+      }
+    }
+    divShow();
+  </script>
+</html>
