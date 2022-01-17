@@ -20,14 +20,12 @@
     </div>
   </body>
   <script type="module">
-    import sidebar from "./components/sidebar.js";
     import { apiCall, appendArticles } from "./scripts/main.js";
     let main = document.querySelector("#main");
-    let sidBox = document.querySelector("#sidebar");
     // sidBox.innerHTML = sidebar();
     var data;
     let searchCon = JSON.parse(localStorage.getItem("search"));
-    let url = `https://gnews.io/api/v4/search?q=${searchCon}&lang=en&country=in&token=e5d6f1461b651ae03bcc71249b666daf`;
+    let url = `https://gnews.io/api/v4/search?q=${searchCon}&lang=en&country=in&token=73879395dab272b21be59e04b325e00c`;
     async function divShow() {
       try {
         let data = await apiCall(url);
